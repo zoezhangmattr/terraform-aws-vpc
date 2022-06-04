@@ -8,6 +8,12 @@ module "test" {
     b = "10.17.2.0/23"
     c = "10.17.4.0/23"
   }
+  extra_public_subnet_tags = {
+    "kubernetes.io/cluster/my-cluster" = "shared"
+  }
+  extra_private_subnet_tags = {
+    "kubernetes.io/cluster/my-cluster" = "shared"
+  }
   private_subnets = {
     a = "10.17.6.0/23"
     b = "10.17.8.0/23"
@@ -16,7 +22,7 @@ module "test" {
 }
 
 output "public-subnet-ids" {
-  value = [ for k,v in module.test.public-subnet-ids: v]
+  value = [for k, v in module.test.public-subnet-ids : v]
 }
 output "a-private-subnet-id" {
   value = module.test.private-subnet-ids["a"]

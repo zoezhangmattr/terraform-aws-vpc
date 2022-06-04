@@ -30,7 +30,9 @@ module "test" {
 | name_prefix | a name prefix used to tag vpc | `string` | true | yes |
 | vpc_cidr | vpc cidr block | `string` | false | yes |
 | public_subnets | public subnets map, availability zone map to cidr block | `map` | false | yes |
+| extra_public_subnet_tags | extra tags to add to public subnet | `map` | false | false |
 | private_subnets | private subnets map, availability zone map to cidr block | `map` | false | yes |
+| extra_private_subnet_tags | extra tags to add to private subnet | `map` | false | false |
 | natgateway | nat gateway list of availability zone to spread | `list` | false | yes |
 
 ## output

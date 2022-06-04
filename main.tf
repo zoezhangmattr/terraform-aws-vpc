@@ -53,9 +53,9 @@ resource "aws_subnet" "public-subnet" {
   cidr_block              = each.value
   availability_zone       = format("%s%s", data.aws_region.current.name, each.key)
   map_public_ip_on_launch = "true"
-  tags = {
+  tags = merge({
     "Name" = format("%s-public-%s", var.name_prefix, each.key)
-  }
+  }, var.extra_public_subnet_tags)
 }
 resource "aws_route_table_association" "public-rba" {
   for_each = var.public_subnets
@@ -84,9 +84,9 @@ resource "aws_subnet" "private-subnet" {
   cidr_block              = each.value
   availability_zone       = format("%s%s", data.aws_region.current.name, each.key)
   map_public_ip_on_launch = "false"
-  tags = {
+  tags = merge({
     "Name" = format("%s-private-%s", var.name_prefix, each.key)
-  }
+  }, var.extra_private_subnet_tags)
 }
 
 resource "aws_route_table" "private-rt" {

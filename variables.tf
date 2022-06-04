@@ -16,6 +16,11 @@ variable "public_subnets" {
   }
   description = "public subnets map, availability zone map to cidr block"
 }
+
+variable "extra_public_subnet_tags" {
+  default     = {}
+  description = "extra tags to add to public subnet"
+}
 variable "private_subnets" {
   default = {
     a = "10.240.12.0/22"
@@ -23,6 +28,11 @@ variable "private_subnets" {
     c = "10.240.20.0/22"
   }
   description = "private subnets map, availability zone map to cidr block"
+}
+
+variable "extra_private_subnet_tags" {
+  default     = {}
+  description = "extra tags to add to private subnet"
 }
 
 variable "natgateway" {
