@@ -16,7 +16,7 @@ module "test" {
 }
 
 output "public-subnet-ids" {
-  value = module.test.public-subnet-ids
+  value = [ for k,v in module.test.public-subnet-ids: v]
 }
 output "a-private-subnet-id" {
   value = module.test.private-subnet-ids["a"]
