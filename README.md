@@ -34,4 +34,8 @@ module "test" {
 | natgateway | nat gateway list of availability zone to spread | `list` | false | yes |
 
 ## output
-vpc_id
+| Name | Description | Type |
+|------|-------------|------|
+| vpc-id | the vpc id | string |
+| public-subnet-ids | a map of generated public subnet ids| map |
+| private-subnet-ids | a map of generated private subnet ids| map|

@@ -14,3 +14,10 @@ module "test" {
     c = "10.17.10.0/23"
   }
 }
+
+output "public-subnet-ids" {
+  value = module.test.public-subnet-ids
+}
+output "a-private-subnet-id" {
+  value = module.test.private-subnet-ids["a"]
+}
